@@ -1,18 +1,25 @@
 import React from 'react';
 import Item from './Item';
 
-function List({ items, deleteItem, editItem }) {
+function List({ evaluaciones, eliminarEvaluacion, editarEvaluacion }) {
   return (
-    <ul>
-      {items.map((item) => (
-        <Item
-          key={item.id}
-          item={item}
-          deleteItem={deleteItem}
-          editItem={editItem}
-        />
-      ))}
-    </ul>
+    <div className="card">
+      <h2>Evaluaciones Guardadas</h2>
+      {evaluaciones.length === 0 ? (
+        <p>No hay evaluaciones guardadas aún. ¡Agrega una!</p>
+      ) : (
+        <ul>
+          {evaluaciones.map((evaluacion) => (
+            <Item
+              key={evaluacion.id}
+              evaluacion={evaluacion}
+              eliminarEvaluacion={eliminarEvaluacion}
+              editarEvaluacion={editarEvaluacion}
+            />
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 

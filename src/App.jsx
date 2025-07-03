@@ -4,48 +4,51 @@ import List from './components/List';
 import './App.css';
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [itemToEdit, setItemToEdit] = useState(null);
+  const [evaluaciones, setEvaluaciones] = useState([]);
+  const [evaluacionAEditar, setEvaluacionAEditar] = useState(null);
 
   useEffect(() => {
-    const storedItems =
-      JSON.parse(localStorage.getItem('items')) || [];
-    setItems(storedItems);
+    const evaluacionesGuardadas =
+      JSON.parse(localStorage.getItem('evaluaciones')) || [];
+    setEvaluaciones(evaluacionesGuardadas);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(items));
-  }, [items]);
+    localStorage.setItem('evaluaciones', JSON.stringify(evaluaciones));
+  }, [evaluaciones]);
 
-  const addOrUpdateItem = (value) => {
-    if (itemToEdit) {
-      setItems(items.map((item) => item.id ===
-        itemToEdit.id ? { ...item, value: value } : item));
-      setItemToEdit(null);
+  const agregarOActualizarEvaluacion = (evaluacion) => {
+    if (evaluacionAEditar) {
+      setEvaluaciones(
+        evaluaciones.map((e) =>
+          e.id === evaluacionAEditar.id ? { ...evaluacion, id: e.id } : e
+        )
+      );
+      setEvaluacionAEditar(null);
     } else {
-      setItems([...items, { id: Date.now(), value }]);
+      setEvaluaciones([...evaluaciones, { ...evaluacion, id: Date.now() }]);
     }
   };
 
-  const deleteItem = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+  const eliminarEvaluacion = (id) => {
+    setEvaluaciones(evaluaciones.filter((e) => e.id !== id));
   };
 
-  const editItem = (item) => {
-    setItemToEdit(item);
+  const editarEvaluacion = (evaluacion) => {
+    setEvaluacionAEditar(evaluacion);
   };
 
   return (
     <div className="App">
-      <h1>CRUD con LocalStorage</h1>
+      <h1>Evaluación de Alumnos</h1>
       <Form
-        addOrUpdateItem={addOrUpdateItem}
-        itemToEdit={itemToEdit}
+        agregarOActualizarEvaluacion={agregarOActualizarEvaluacion}
+        evaluacionAEditar={evaluacionAEditar}
       />
       <List
-        items={items}
-        deleteItem={deleteItem}
-        editItem={editItem}
+        evaluaciones={evaluaciones}
+        eliminarEvaluacion={eliminarEvaluacion}
+        editarEvaluacion={editarEvaluacion}
       />
     </div>
   );
