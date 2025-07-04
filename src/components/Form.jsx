@@ -44,7 +44,7 @@ function Form({ agregarOActualizarEvaluacion, evaluacionAEditar }) {
           <label>Asignatura:</label>
           <input
             type="text"
-            placeholder="Ej: Matemáticas"
+            placeholder="Ej: Programacion Front End"
             value={asignatura}
             onChange={(e) => setAsignatura(e.target.value)}
           />

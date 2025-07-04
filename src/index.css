@@ -1,68 +1,179 @@
+/* PALETA DE COLORES 1: Rojo y Beige (Activa) */
 :root {
+  --background-color: #f5f5dc; /* Beige */
+  --text-color: #8b4513; /* SaddleBrown (Marrón rojizo oscuro) */
+  --card-background: #fffaf0; /* FloralWhite */
+  --primary-button-bg: #cd5c5c; /* IndianRed */
+  --primary-button-hover: #b22222; /* Firebrick */
+  --edit-button-bg: #f4a460; /* SandyBrown */
+  --edit-button-hover: #d2691e; /* Chocolate */
+  --delete-button-bg: #e9967a; /* DarkSalmon */
+  --delete-button-hover: #c70039; /* Crimson oscuro */
+  --border-color: #d2b48c; /* Tan */
+}
+
+/* PALETA DE COLORES 2: Tonos Océano (descomenta para usar) */
+/*
+:root {
+  --background-color: #f0f8ff; 
+  --text-color: #000080; 
+  --card-background: #ffffff; 
+  --primary-button-bg: #4682b4; 
+  --primary-button-hover: #4169e1; 
+  --edit-button-bg: #ffd700; 
+  --edit-button-hover: #ffc700;
+  --delete-button-bg: #dc143c; 
+  --delete-button-hover: #b22222; 
+  --border-color: #dcdcdc; 
+}
+*/
+
+/* Estilos Generales */
+body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
+h1,
+h2 {
+  color: var(--text-color);
+}
+
+/* Estilos de la Tarjeta y Formulario */
+.card {
+  background-color: var(--card-background);
+  border-radius: 8px;
+  padding: 2em;
+  margin-top: 2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+form div {
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='number'] {
+  width: calc(100% - 1.6em);
+  padding: 0.8em;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+/* Estilos de Botones */
 button {
+  width: 100%;
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.8em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.25s;
+  background-color: var(--primary-button-bg);
+  color: white;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+  background-color: var(--primary-button-hover);
+}
+
+/* Estilos de la Lista de Evaluaciones */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1.5em;
+  margin-bottom: 1em;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1em;
+  align-items: center;
+}
+
+li .info {
+  display: flex;
+  flex-direction: column;
+}
+
+li .actions {
+  display: flex;
+  gap: 0.5em;
+}
+
+.editar,
+.eliminar {
+  width: auto;
+  padding: 0.5em 1em;
+}
+
+.editar {
+  background-color: var(--edit-button-bg);
+  color: var(--text-color);
+}
+
+.editar:hover {
+  background-color: var(--edit-button-hover);
+}
+
+.eliminar {
+  background-color: var(--delete-button-bg);
+  color: white;
+}
+
+.eliminar:hover {
+  background-color: var(--delete-button-hover);
+}
+
+
+/* Estilos de Escalas */
+.destacado {
+  color: #00008b;
+  font-weight: bold;
+}
+
+.buen-trabajo {
+  color: #006400;
+  font-weight: bold;
+}
+
+.con-mejora {
+  color: #daa520;
+  font-weight: bold;
+}
+
+.deficiente {
+  color: #b22222;
+  font-weight: bold;
 }
