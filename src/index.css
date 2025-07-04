@@ -1,34 +1,16 @@
-/* PALETA DE COLORES 1: Rojo y Beige (Activa) */
-:root {
-  --background-color: #f5f5dc; /* Beige */
-  --text-color: #8b4513; /* SaddleBrown (Marrón rojizo oscuro) */
-  --card-background: #fffaf0; /* FloralWhite */
-  --primary-button-bg: #cd5c5c; /* IndianRed */
-  --primary-button-hover: #b22222; /* Firebrick */
-  --edit-button-bg: #f4a460; /* SandyBrown */
-  --edit-button-hover: #d2691e; /* Chocolate */
-  --delete-button-bg: #e9967a; /* DarkSalmon */
-  --delete-button-hover: #c70039; /* Crimson oscuro */
-  --border-color: #d2b48c; /* Tan */
+  :root {
+  --background-color: #f5f5dc; 
+  --text-color: #8b4513; 
+  --card-background: #fffaf0; 
+  --primary-button-bg: #cd5c5c; 
+  --primary-button-hover: #b22222; 
+  --edit-button-bg: #f4a460; 
+  --edit-button-hover: #d2691e; 
+  --delete-button-bg: #e9967a;
+  --delete-button-hover: #c70039; 
+  --border-color: #d2b48c; 
 }
 
-/* PALETA DE COLORES 2: Tonos Océano (descomenta para usar) */
-/*
-:root {
-  --background-color: #f0f8ff; 
-  --text-color: #000080; 
-  --card-background: #ffffff; 
-  --primary-button-bg: #4682b4; 
-  --primary-button-hover: #4169e1; 
-  --edit-button-bg: #ffd700; 
-  --edit-button-hover: #ffc700;
-  --delete-button-bg: #dc143c; 
-  --delete-button-hover: #b22222; 
-  --border-color: #dcdcdc; 
-}
-*/
-
-/* Estilos Generales */
 body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -53,7 +35,6 @@ h2 {
   color: var(--text-color);
 }
 
-/* Estilos de la Tarjeta y Formulario */
 .card {
   background-color: var(--card-background);
   border-radius: 8px;
@@ -84,7 +65,6 @@ input[type='number'] {
   color: var(--text-color);
 }
 
-/* Estilos de Botones */
 button {
   width: 100%;
   border-radius: 8px;
@@ -103,7 +83,6 @@ button:hover {
   background-color: var(--primary-button-hover);
 }
 
-/* Estilos de la Lista de Evaluaciones */
 ul {
   list-style: none;
   padding: 0;
@@ -157,7 +136,6 @@ li .actions {
 }
 
 
-/* Estilos de Escalas */
 .destacado {
   color: #00008b;
   font-weight: bold;
